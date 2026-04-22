@@ -1,3 +1,10 @@
+:root {
+  --color-kyle: #59b94b;
+  --color-cartman: #EC2D4E;
+  --color-kenny: #EF6502;
+  --color-stan: #4677B9;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +12,14 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #333;
+  color: #aaa;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
+li {
+  list-style: none;
+}

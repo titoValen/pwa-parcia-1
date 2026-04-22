@@ -1,8 +1,6 @@
 import { endpoint } from "./endpoint.js";
-
-const $ = document;
-const renderizar = $.getElementById("renderizar");
-const li = $.querySelectorAll("li");
+import { li, renderizar } from "./elementos.js";
+import { renderizarData } from "./functions.js";
 
 li.forEach((e) => {
   e.addEventListener("click", (j) => {
@@ -10,14 +8,11 @@ li.forEach((e) => {
     fetch(endpoint[id])
       .then((response) => response.json())
       .then((datos) => {
-        renderizarData(datos);
+        console.log(datos);
+        renderizarData(id, datos, renderizar);
       })
       .catch((error) => {
         console.error(`Error fetching ${id}:`, error);
       });
   });
 });
-
-function renderizarData(datos) {
-  // console.log(datos.data[0].name);
-}

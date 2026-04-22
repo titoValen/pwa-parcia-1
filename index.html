@@ -6,11 +6,28 @@
     <title>PWA - Parcial 1</title>
 
     <link rel="stylesheet" href="style/global.css">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/index.css">
 
-    <script src="script/main.js" defer></script>
+    <script src="script/renderizar.js" defer type="module"></script>
   </head>
+
   <body>
-    
+    <header>
+        <h1>South Park</h1>
+        <p>En está página encontrarás información sobre los personajes de South Park.</p>
+    </header>
+    <main>
+      <ul>
+        <li id="personajes">Personajes</li>
+        <li id="episodios">Episodios</li>
+        <li id="familia">Familia</li>
+        <li id="ubicacion">Ubicación</li>
+      </ul>
+
+      <section id="renderizar"></section>
+    </main>
+    <footer>
+        <p>Creado por Tito Valentín</p>
+    </footer>
   </body>
 </html>

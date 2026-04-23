@@ -2,6 +2,8 @@
 import { $, imageCDN } from "./elementos.js";
 
 export function renderizarData(id, datos, contenedor) {
+  limpiarContenedor(contenedor);
+  
   switch (id) {
     case "characters":
       renderizarCharacters(datos, contenedor);
@@ -67,5 +69,11 @@ function renderizarLocations(datos, contenedor) {
       <p>${datos.results[i].town}</p>
     `;
     contenedor.appendChild(card);
+  }
+}
+
+function limpiarContenedor(contenedor) {
+  while (contenedor.firstChild) {
+    contenedor.removeChild(contenedor.firstChild);
   }
 }

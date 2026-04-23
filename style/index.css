@@ -21,3 +21,24 @@ ul {
     }
   }
 }
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card {
+  max-width: 400px;
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: #d8d7d7;
+  border-radius: 0.5rem;
+  color: #131313;
+}

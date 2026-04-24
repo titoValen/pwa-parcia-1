@@ -1,9 +1,8 @@
 // functions.js
-import { $, imageCDN } from "./elementos.js";
+import { $, imageCDN, containerBtn, btnSiguiente } from "./elementos.js";
 
 export function renderizarData(id, datos, contenedor) {
   limpiarContenedor(contenedor);
-  
   switch (id) {
     case "characters":
       renderizarCharacters(datos, contenedor);
@@ -20,6 +19,9 @@ export function renderizarData(id, datos, contenedor) {
       console.error(`ID no reconocido: ${id}`);
       break;
   }
+  renderizarBotones();
+  siguientePag(id, datos, contenedor);
+
 }
 
 function renderizarCharacters(datos, contenedor) {
@@ -76,4 +78,34 @@ function limpiarContenedor(contenedor) {
   while (contenedor.firstChild) {
     contenedor.removeChild(contenedor.firstChild);
   }
+}
+
+function renderizarBotones() {
+  containerBtn.style.display = "flex";
+}
+
+function siguientePag(id, datos, contenedor) {
+  if (!datos.next) {
+    btnSiguiente.onclick = null;
+    btnSiguiente.classList.remove("btn-sig");
+    btnSiguiente.classList.add("btn-not-available");
+    return;
+  }
+
+  btnSiguiente.classList.remove("btn-not-available");
+  btnSiguiente.classList.add("btn-sig");
+
+  const siguienteEndpoint = datos.next;
+
+  btnSiguiente.onclick = () => {
+    fetch(siguienteEndpoint)
+      .then((response) => response.json())
+      .then((datos) => {
+        console.log(datos);
+        renderizarData(id, datos, contenedor);
+      })
+      .catch((error) => {
+        console.error(`Error fetching ${id}:`, error);
+      });
+  };
 }

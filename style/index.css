@@ -44,19 +44,27 @@ section {
 }
 
 .container-btn {
-  display: none;
+  display: flex;
   justify-content: center;
-  gap: 5rem;
-  margin: 1rem 0;
+  gap: .5rem;
+  margin: 1rem .5rem;
 
   & .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
     font-size: 1rem;
     padding: 0.5rem 1rem;
     background-color: #FFDA16;
     color: #131313;
     border: none;
-    border-radius: 1.5rem;
     cursor: pointer;
+
+    & figure {
+      width: 70px;
+      height: 70px;
+    }
 
     &:active {
       background-color: #9d8610;

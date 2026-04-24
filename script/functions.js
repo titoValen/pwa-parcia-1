@@ -1,5 +1,5 @@
 // functions.js
-import { $, imageCDN, containerBtn, btnSiguiente } from "./elementos.js";
+import { $, imageCDN, containerBtn, btnSiguiente, btnAnterior } from "./elementos.js";
 
 export function renderizarData(id, datos, contenedor) {
   limpiarContenedor(contenedor);
@@ -21,7 +21,7 @@ export function renderizarData(id, datos, contenedor) {
   }
   renderizarBotones();
   siguientePag(id, datos, contenedor);
-
+  anteriorPag(id, datos, contenedor);
 }
 
 function renderizarCharacters(datos, contenedor) {
@@ -98,6 +98,32 @@ function siguientePag(id, datos, contenedor) {
   const siguienteEndpoint = datos.next;
 
   btnSiguiente.onclick = () => {
+    fetch(siguienteEndpoint)
+      .then((response) => response.json())
+      .then((datos) => {
+        console.log(datos);
+        renderizarData(id, datos, contenedor);
+      })
+      .catch((error) => {
+        console.error(`Error fetching ${id}:`, error);
+      });
+  };
+}
+
+function anteriorPag(id, datos, contenedor) {
+  if (!datos.prev) {
+    btnAnterior.onclick = null;
+    btnAnterior.classList.remove("btn-sig");
+    btnAnterior.classList.add("btn-not-available");
+    return;
+  }
+
+  btnAnterior.classList.remove("btn-not-available");
+  btnAnterior.classList.add("btn-sig");
+
+  const siguienteEndpoint = datos.prev;
+
+  btnAnterior.onclick = () => {
     fetch(siguienteEndpoint)
       .then((response) => response.json())
       .then((datos) => {

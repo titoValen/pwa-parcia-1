@@ -2,8 +2,6 @@ import { endpoint } from "./endpoint.js";
 import { li, renderizar, containerBtn } from "./elementos.js";
 import { renderizarData } from "./functions.js";
 
-containerBtn.style.display = "none";
-
 li.forEach((e) => {
   e.addEventListener("click", (j) => {
     const id = j.target.id;

@@ -42,3 +42,39 @@ section {
   border-radius: 0.5rem;
   color: #131313;
 }
+
+.container-btn {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin: 1rem 0;
+
+  & .btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #FFDA16;
+    color: #131313;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+
+    &:active {
+      background-color: #9d8610;
+    }
+    &:hover {
+      background-color: #9d8610;
+    }
+  }
+
+  & .btn-not-available {
+    background-color: #555;
+    cursor: not-allowed;
+
+    &:active {
+      background-color: #555;
+    }
+    &:hover {
+      background-color: #555;
+    }
+  }
+}

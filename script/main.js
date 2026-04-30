@@ -1,6 +1,6 @@
 import { endpoint } from "./endpoint.js";
-import { li, renderizar, containerBtn } from "./elementos.js";
-import { renderizarData } from "./functions.js";
+import { li, renderizar } from "./elementos.js";
+import { renderizarData, toggleHeart } from "./functions.js";
 
 li.forEach((e) => {
   e.addEventListener("click", (j) => {
@@ -15,4 +15,12 @@ li.forEach((e) => {
         console.error(`Error fetching ${id}:`, error);
       });
   });
+});
+
+renderizar.addEventListener("click", (event) => {
+  const heart = event.target.closest(".heart");
+
+  if (!heart) return;
+
+  toggleHeart(heart);
 });

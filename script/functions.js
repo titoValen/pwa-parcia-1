@@ -6,6 +6,8 @@ import {
   btnAnterior,
 } from "./elementos.js";
 
+import { endpoint } from "./endpoint.js";
+
 export function renderizarData(id, datos, contenedor) {
   limpiarContenedor(contenedor);
   switch (id) {
@@ -160,4 +162,31 @@ export function toggleHeart(heart) {
   } else {
     img.src = "../img/heartRemix.svg";
   }
+
+  guardarFavorito(heart.parentElement.id);
+}
+
+function guardarFavorito(idPadre) {
+  const id = idPadre.split("-")[1];
+  const tipo = idPadre.split("-")[0];
+
+  let favoritos = { id, tipo };
+
+  if (!localStorage.getItem("favorito")) {
+    localStorage.setItem("favorito", JSON.stringify([favoritos]));
+    return;
+  }
+  
+  let dataLocal = JSON.parse(localStorage.getItem("favorito"));
+
+  for (let i = 0; i < dataLocal.length; i++) {
+    if (dataLocal[i].id === id && dataLocal[i].tipo === tipo) {
+      dataLocal.splice(i, 1);
+      localStorage.setItem("favorito", JSON.stringify(dataLocal));
+      return;
+    }
+  }
+  
+  dataLocal.push(favoritos);
+  localStorage.setItem("favorito", JSON.stringify(dataLocal));
 }

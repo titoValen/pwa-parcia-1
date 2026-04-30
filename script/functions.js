@@ -1,4 +1,3 @@
-// functions.js
 import {
   $,
   imageCDN,
@@ -33,6 +32,7 @@ export function renderizarData(id, datos, contenedor) {
 function renderizarCharacters(datos, contenedor) {
   for (let i = 0; i < datos.results.length; i++) {
     const card = $.createElement("div");
+    card.id = `character-${datos.results[i].id}`;
     card.classList.add("card");
     card.innerHTML = `
       <figure class="heart">
@@ -51,6 +51,7 @@ function renderizarCharacters(datos, contenedor) {
 function renderizarEpisodes(datos, contenedor) {
   for (let i = 0; i < datos.results.length; i++) {
     const card = $.createElement("div");
+    card.id = `episode-${datos.results[i].id}`;
     card.classList.add("card");
     card.innerHTML = `
       <figure class="heart">
@@ -74,6 +75,7 @@ function renderizarEpisodes(datos, contenedor) {
 function renderizarLocations(datos, contenedor) {
   for (let i = 0; i < datos.results.length; i++) {
     const card = $.createElement("div");
+    card.id = `location-${datos.results[i].id}`;
     card.classList.add("card");
     card.innerHTML = `
       <figure class="heart">

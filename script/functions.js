@@ -150,3 +150,12 @@ function anteriorPag(id, datos, contenedor) {
       });
   };
 }
+
+export function toggleHeart(heart) {
+  const img = heart.querySelector("img");
+  if (img.src.includes("heartRemix.svg")) {
+    img.src = "../img/heartSolid.svg";
+  } else {
+    img.src = "../img/heartRemix.svg";
+  }
+}

@@ -22,6 +22,12 @@ ul {
   }
 }
 
+nav {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
 section {
   display: flex;
   flex-wrap: wrap;

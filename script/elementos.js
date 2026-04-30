@@ -5,3 +5,4 @@ export const imageCDN = "https://cdn.thesimpsonsapi.com/200";
 export const containerBtn = $.querySelector(".container-btn");
 export const btnAnterior = $.querySelector(".btn-ant");
 export const btnSiguiente = $.querySelector(".btn-sig");
+export const btnHeart = $.getElementById("btn-heart");

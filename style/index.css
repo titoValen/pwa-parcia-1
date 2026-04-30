@@ -41,6 +41,19 @@ section {
   background: #d8d7d7;
   border-radius: 0.5rem;
   color: #131313;
+
+  & .heart {
+    position: relative;
+    left: 165px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .container-btn {

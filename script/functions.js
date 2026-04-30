@@ -1,5 +1,11 @@
 // functions.js
-import { $, imageCDN, containerBtn, btnSiguiente, btnAnterior } from "./elementos.js";
+import {
+  $,
+  imageCDN,
+  containerBtn,
+  btnSiguiente,
+  btnAnterior,
+} from "./elementos.js";
 
 export function renderizarData(id, datos, contenedor) {
   limpiarContenedor(contenedor);
@@ -29,6 +35,9 @@ function renderizarCharacters(datos, contenedor) {
     const card = $.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
+      <figure class="heart">
+        <img src="../img/heartRemix.svg" alt="Icono de corazón en linea">
+      </figure>
       <figure>
         <img src="${imageCDN}${datos.results[i].portrait_path}" alt="${datos.results[i].name}">
       </figure>  
@@ -44,6 +53,9 @@ function renderizarEpisodes(datos, contenedor) {
     const card = $.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
+      <figure class="heart">
+        <img src="../img/heartRemix.svg" alt="Icono de corazón en linea">
+      </figure>
       <figure>
         <img src="${imageCDN}${datos.results[i].image_path}" alt="${datos.results[i].name}">
       </figure>  
@@ -64,6 +76,9 @@ function renderizarLocations(datos, contenedor) {
     const card = $.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
+      <figure class="heart">
+        <img src="../img/heartRemix.svg" alt="Icono de corazón en linea">
+      </figure>
       <figure>
         <img src="${imageCDN}${datos.results[i].image_path}" alt="${datos.results[i].name}">
       </figure>  

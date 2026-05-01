@@ -8,8 +8,10 @@ import {
 
 import { endpoint } from "./endpoint.js";
 
-export function renderizarData(id, datos, contenedor) {
-  limpiarContenedor(contenedor);
+export function renderizarData(id, datos, contenedor, limpiar = true) {
+  if (limpiar) {
+    limpiarContenedor(contenedor);
+  }
   switch (id) {
     case "characters":
       renderizarCharacters(datos, contenedor);
@@ -202,10 +204,10 @@ export function mostrarFavoritos() {
 
   favoritos.forEach((fav) => {
     const url = endpoint[`${fav.tipo}s`];
-    fetch(`${url}?id=${fav.id}`)
+    fetch(`${url}/${fav.id}`)
       .then((response) => response.json())
       .then((datos) => {
-        renderizarData(`${fav.tipo}s`, { results: datos }, renderizar);
+        renderizarData(`${fav.tipo}s`, { results: [datos] }, renderizar, false);
       })
       .catch((error) => {
         console.error(`Error fetching favorito ${fav.id}:`, error);

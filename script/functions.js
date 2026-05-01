@@ -190,3 +190,25 @@ function guardarFavorito(idPadre) {
   dataLocal.push(favoritos);
   localStorage.setItem("favorito", JSON.stringify(dataLocal));
 }
+
+export function mostrarFavoritos() {
+  const favoritos = JSON.parse(localStorage.getItem("favorito"));
+  if (!favoritos || favoritos.length === 0) {
+    alert("No tienes personajes favoritos guardados.");
+    return;
+  }
+
+  limpiarContenedor(renderizar);
+
+  favoritos.forEach((fav) => {
+    const url = endpoint[`${fav.tipo}s`];
+    fetch(`${url}?id=${fav.id}`)
+      .then((response) => response.json())
+      .then((datos) => {
+        renderizarData(`${fav.tipo}s`, { results: datos }, renderizar);
+      })
+      .catch((error) => {
+        console.error(`Error fetching favorito ${fav.id}:`, error);
+      });
+  });
+}

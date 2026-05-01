@@ -1,6 +1,6 @@
 import { endpoint } from "./endpoint.js";
-import { li, renderizar } from "./elementos.js";
-import { renderizarData, toggleHeart } from "./functions.js";
+import { li, renderizar, btnHeart } from "./elementos.js";
+import { renderizarData, toggleHeart, mostrarFavoritos } from "./functions.js";
 
 li.forEach((e) => {
   e.addEventListener("click", (j) => {
@@ -23,4 +23,8 @@ renderizar.addEventListener("click", (event) => {
   if (!heart) return;
 
   toggleHeart(heart);
+});
+
+btnHeart.addEventListener("click", () => {
+  mostrarFavoritos();
 });
